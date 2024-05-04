@@ -10,11 +10,12 @@ import NavBar from './NavBar'
 
 interface AppProps {
     expdata: any[];
+    setExpData : any
     singleobj: any; 
     setSingleObj: any; 
 }
 
-const App: React.FC<AppProps> = ({ expdata,singleobj, setSingleObj }) => {
+const App: React.FC<AppProps> = ({ expdata,singleobj, setSingleObj, setExpData }) => {
     return (
         <Stack align="center" p={0} height="100vh" bg="#F8F9FA">
             <Stack width="95%">
@@ -25,7 +26,7 @@ const App: React.FC<AppProps> = ({ expdata,singleobj, setSingleObj }) => {
                 <Flex gap={3}>
                     <LeftHandSide />
                     <Flex gap={4}>
-                        <MiddleHandSide singleobj={singleobj} setSingleObj={setSingleObj} expdata={expdata}/>
+                        <MiddleHandSide  singleobj={singleobj} setSingleObj={setSingleObj} expdata={expdata} setExpData={setExpData}/>
                         <RightHandSide singleobj={singleobj} expdata={expdata} setSingleObj={setSingleObj} />
                     </Flex>
                 </Flex>
