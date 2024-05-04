@@ -24,14 +24,14 @@ const RightHandSide: React.FC<AppProps>  = ({singleobj, expdata, setSingleObj}) 
                     <Stack justify="space-between" width="100%" gap={0}>
                         <Flex align="center" justify="space-between" width="100%">
                             <Flex align="center" gap={2}>
-                                <Avatar borderRadius="9px" name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+                                <Avatar borderRadius="9px" name='Segun Adebayo' src={singleobj.avatar.src} />
                                 <Stack justify="center" gap={0}>
                                     <Text fontSize="15px" fontWeight={700}>{singleobj.name}</Text>
                                     <Text fontWeight={500} fontSize="12px" color="#7C8A9F">{singleobj.email}</Text>
                                 </Stack>
                             </Flex>
                             <Flex>
-                                <Text color={singleobj.percentage >=50 ? "#32BE5C": "red"} fontWeight={700}>{singleobj.percentage}</Text>
+                                <Text color={singleobj.percentage >=50 ? "#32BE5C": "red"} fontWeight={700}>{singleobj.percentage}%</Text>
                             </Flex>
                         </Flex>
 
