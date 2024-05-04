@@ -16,8 +16,6 @@ interface AppProps {
 }
 const RightHandSide: React.FC<AppProps>  = ({singleobj, expdata, setSingleObj}) => {
 
-    console.log(singleobj)
-
     return (
         <Flex flex={4}>
             <Card display="flex">
@@ -33,7 +31,7 @@ const RightHandSide: React.FC<AppProps>  = ({singleobj, expdata, setSingleObj}) 
                                 </Stack>
                             </Flex>
                             <Flex>
-                                <Text color="#32BE5C" fontWeight={700}>{singleobj.percentage}</Text>
+                                <Text color={singleobj.percentage >=50 ? "#32BE5C": "red"} fontWeight={700}>{singleobj.percentage}</Text>
                             </Flex>
                         </Flex>
 
