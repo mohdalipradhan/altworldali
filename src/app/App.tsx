@@ -9,14 +9,9 @@ import RightHandSide from './RightHandSide'
 import NavBar from './NavBar'
 
 interface AppProps {
-    expdata: Person[];
+    expdata: any;
     singleobj: any; 
     setSingleObj: any; 
-  }
-  
-
-interface AppProps {
-  expdata: Person[];
 }
 
 const App: React.FC<AppProps> = ({ expdata,singleobj, setSingleObj }) => {
