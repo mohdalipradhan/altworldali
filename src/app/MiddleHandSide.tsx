@@ -116,7 +116,7 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj, 
                                         </Stack>
                                     </Flex>
                                     <Flex>
-                                        <Text color="#32BE5C" fontWeight={700}>{item.percentage}%</Text>
+                                        <Text color={item.percentage >= 50 ? "#32BE5C" : "red"} fontWeight={700}>{item.percentage}%</Text>
                                     </Flex>
                                 </Flex>
                             ))
