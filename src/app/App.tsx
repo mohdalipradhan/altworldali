@@ -8,17 +8,18 @@ import MiddleHandSide from './MiddleHandSide'
 import RightHandSide from './RightHandSide'
 import NavBar from './NavBar'
 
-interface Person {
-  name: string;
-  email: string;
-}
+interface AppProps {
+    expdata: Person[];
+    singleobj: any; 
+    setSingleObj: any; 
+  }
+  
 
 interface AppProps {
   expdata: Person[];
 }
 
 const App: React.FC<AppProps> = ({ expdata,singleobj, setSingleObj }) => {
-    console.log(expdata, "Something")
     return (
         <Stack align="center" p={0} height="100vh" bg="#F8F9FA">
             <Stack width="95%">
