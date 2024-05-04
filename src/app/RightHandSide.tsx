@@ -4,6 +4,7 @@ import { Avatar, Box, Button, ButtonGroup, Divider, Flex, Heading, IconButton, I
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import ProgressBar from '@ramonak/react-progress-bar'
 import React from 'react'
+import womanprofessional from "../../public/professionalwoman.jpg"
 
 
 
@@ -14,7 +15,8 @@ interface AppProps {
     expdata: any[];
     setSingleObj: any;
 }
-const RightHandSide: React.FC<AppProps>  = ({singleobj, expdata, setSingleObj}) => {
+const RightHandSide: React.FC<AppProps> = ({ singleobj, expdata, setSingleObj }) => {
+
 
     return (
         <Flex flex={4}>
@@ -31,24 +33,24 @@ const RightHandSide: React.FC<AppProps>  = ({singleobj, expdata, setSingleObj}) 
                                 </Stack>
                             </Flex>
                             <Flex>
-                                <Text color={singleobj.percentage >=50 ? "#32BE5C": "red"} fontWeight={700}>{singleobj.percentage}%</Text>
+                                <Text color={singleobj.percentage >= 50 ? "#32BE5C" : "red"} fontWeight={700}>{singleobj.percentage}%</Text>
                             </Flex>
                         </Flex>
 
                         <Stack fontSize="12px" fontWeight={600} color="#8D99AB">
                             <Flex justify="space-between" align="center">
                                 <Text>Behavioral</Text>
-                                <ProgressBar bgColor={singleobj.behavioral <= 50 ? "#ECB22E" : '#2EBD59' } width='150px' height="17px" completed={singleobj.behavioral} />
+                                <ProgressBar bgColor={singleobj.behavioral <= 50 ? "#ECB22E" : '#2EBD59'} width='150px' height="17px" completed={singleobj.behavioral} />
                             </Flex>
 
                             <Flex justify="space-between" align="center">
                                 <Text>Communication</Text>
-                                <ProgressBar bgColor={singleobj.communication <= 50 ? "#ECB22E" : '#2EBD59' } width='150px' height="17px" completed={singleobj.communication} />
+                                <ProgressBar bgColor={singleobj.communication <= 50 ? "#ECB22E" : '#2EBD59'} width='150px' height="17px" completed={singleobj.communication} />
                             </Flex>
 
                             <Flex justify="space-between" align="center">
                                 <Text>Situational handling</Text>
-                                <ProgressBar bgColor={singleobj.situationHandling <= 50 ? "#ECB22E" : '#2EBD59' } width='150px' height="17px" completed={singleobj.situationHandling} />
+                                <ProgressBar bgColor={singleobj.situationHandling <= 50 ? "#ECB22E" : '#2EBD59'} width='150px' height="17px" completed={singleobj.situationHandling} />
                             </Flex>
                         </Stack>
 
@@ -81,7 +83,7 @@ const RightHandSide: React.FC<AppProps>  = ({singleobj, expdata, setSingleObj}) 
                     <Image
                         height="500px"
                         width="300px"
-                        src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+                        src={womanprofessional.src} 
                         alt='Green double couch with wooden legs'
                         borderRadius='lg'
                     />
