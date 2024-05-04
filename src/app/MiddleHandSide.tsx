@@ -21,6 +21,7 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }
     }
 
     const [selectedMenu, setSelectedMenu] = useState(singleobj.name);
+    console.log(expdata)
 
 
     useEffect(()=>{
@@ -95,7 +96,7 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }
                             expdata.map((item) => (
                                 <Flex cursor="pointer" background={selectedMenu === item.name ? '#F0F0F0' : "white"} onClick={() => sendSingleObject(item)} align="center" justify="space-between" width="100%">
                                     <Flex align="center" gap={2}>
-                                        <Avatar borderRadius="9px" name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+                                        <Avatar borderRadius="9px" name='Segun Adebayo' src={item.avatar.src} />
                                         <Stack justify="center" gap={0}>
                                             <Text fontSize="15px" fontWeight={700}>{item.name}</Text>
                                             <Text fontWeight={500} fontSize="12px" color="#7C8A9F">{item.email}</Text>
