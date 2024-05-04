@@ -4,6 +4,7 @@ import Image from "next/image";
 import App from "./App";
 import people from "./data/data";
 import { useState } from "react";
+import data0 from "../../public/300 (1).jpg"
 
 
 export default function Home() {
@@ -17,7 +18,8 @@ export default function Home() {
     situationHandling: 80,
     experience: "5 years in sales",
     hobbies: ["reading", "hiking"],
-    introduction: "Experienced sales professional with a passion for reading and hiking."
+    introduction: "Experienced sales professional with a passion for reading and hiking.",
+    avatar: data0
   });
   return (
     <ChakraProvider theme={theme}>
