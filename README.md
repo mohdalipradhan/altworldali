@@ -6,3 +6,6 @@ Utilization of a mock API containing candidate details such as percentage, name,
 Integration of Chakra UI for an aesthetically pleasing and intuitive design.
 Implementation of local storage to enable the shortlisting process, with a validation feature ensuring that only candidates with a total score above 50 percent are shortlisted.
 Overall, this approach not only meets project requirements but also enhances user interaction and functionality
+
+
+Deployment is done in vercel as told
