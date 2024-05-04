@@ -1,94 +1,113 @@
 "use client"
 
-import { Avatar, Box, Button, ButtonGroup, Divider, Flex, Heading, IconButton, Image, Progress, Stack, StackDivider, Text } from '@chakra-ui/react'
+import { Avatar, Box, Button, Flex, Heading, IconButton, Image, Stack, Text } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
-import ProgressBar from '@ramonak/react-progress-bar'
+import { faCube, faFile, faPen } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import React from 'react'
 
 
-
-
 interface AppProps {
+    expdata: any[];
     singleobj: any;
+    setSingleObj: any;
 }
-const RightHandSide: React.FC<AppProps>  = ({singleobj}) => {
+const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }) => {
 
-    console.log(singleobj)
-
+    const sendSingleObject = (item: any) => {
+        setSingleObj(item)
+    }
     return (
         <Flex flex={4}>
-            <Card display="flex">
-                <CardBody width="700px" gap={4} height="auto" display="flex" flexDir="row" padding={4}>
+            <Card width="1000px" maxW='md'>
+                <CardHeader width="100%">
+                    <Flex>
+                        <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                            <Box display="flex" justifyContent="space-between" width="100%">
+                                <Heading size='sm' >Sales BDE</Heading>
 
-                    <Stack justify="space-between" width="100%" gap={0}>
-                        <Flex align="center" justify="space-between" width="100%">
-                            <Flex align="center" gap={2}>
-                                <Avatar borderRadius="9px" name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
-                                <Stack justify="center" gap={0}>
-                                    <Text fontSize="15px" fontWeight={700}>{singleobj.name}</Text>
-                                    <Text fontWeight={500} fontSize="12px" color="#7C8A9F">{singleobj.email}</Text>
-                                </Stack>
-                            </Flex>
-                            <Flex>
-                                <Text color="#32BE5C" fontWeight={700}>{singleobj.percentage}</Text>
-                            </Flex>
+
+                                <Flex marginRight="-28px" align="center" gap={2} _hover={{ bg: "white" }}>
+                                    <Text color="#05AB65" fontWeight={700}> Active</Text>
+                                    <Flex p={3} bg="white" width="20px" height="20px" align="center" justify="center" border="1px solid lightgray" borderRadius="6px">
+                                        <FontAwesomeIcon color="black" icon={faPen} />
+                                    </Flex>
+                                </Flex>
+
+                            </Box>
                         </Flex>
-
-                        <Stack fontSize="12px" fontWeight={600} color="#8D99AB">
-                            <Flex justify="space-between" align="center">
-                                <Text>Behavioral</Text>
-                                <ProgressBar bgColor={singleobj.behavioral <= 50 ? "#ECB22E" : '#2EBD59' } width='150px' height="17px" completed={singleobj.behavioral} />
+                        <IconButton
+                            variant='ghost'
+                            colorScheme='gray'
+                            aria-label='See menu'
+                        />
+                    </Flex>
+                </CardHeader>
+                <CardBody marginTop="-23px" display="flex" flexDir="column" gap={4}>
+                    <Stack>
+                        <li style={{ listStyle: "none" }}>
+                            <Flex justify="space-between">
+                                <Text color="#79879C" fontWeight={700}>Assignment Link</Text>
+                                <Text fontSize="14px" fontWeight={500} color="#2E88FF">httplink.com</Text>
                             </Flex>
-
-                            <Flex justify="space-between" align="center">
-                                <Text>Communication</Text>
-                                <ProgressBar bgColor={singleobj.communication <= 50 ? "#ECB22E" : '#2EBD59' } width='150px' height="17px" completed={singleobj.communication} />
+                        </li>
+                        <li style={{ listStyle: "none" }}>
+                            <Flex justify="space-between">
+                                <Text color="#79879C" fontWeight={700}>Assignment Hour</Text>
+                                <Text fontWeight={600} fontSize="14px" color="#79879C">3 hours</Text>
                             </Flex>
-
-                            <Flex justify="space-between" align="center">
-                                <Text>Situational handling</Text>
-                                <ProgressBar bgColor={singleobj.situationHandling <= 50 ? "#ECB22E" : '#2EBD59' } width='150px' height="17px" completed={singleobj.situationHandling} />
+                        </li>
+                        <li style={{ listStyle: "none" }}>
+                            <Flex justify="space-between">
+                                <Text color="#79879C" fontWeight={700}>Assignment Ends at</Text>
+                                <Text fontWeight={600} fontSize="14px" color="#79879C">11 March 2024</Text>
                             </Flex>
-                        </Stack>
+                        </li>
 
-                        <Stack gap={3}>
-                            <Stack>
-                                <Text fontWeight={700}>About</Text>
-                                <Text color="gray" fontWeight={500} fontSize="12px">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</Text>
-                            </Stack>
 
-                            <Stack>
-                                <Text fontWeight={700}>Experience</Text>
-                                <Text color="gray" fontWeight={500} fontSize="12px">{singleobj.experience}</Text>
-                            </Stack>
 
-                            <Stack>
-                                <Text fontWeight={700}>Hobbies</Text>
-                                <Text textTransform="capitalize" color="gray" fontWeight={500} fontSize="12px">{singleobj.hobbies[0]}</Text>
-                            </Stack>
-
-                            <Stack>
-                                <Text fontWeight={700}>Introduction</Text>
-                                <Text color="gray" fontWeight={500} fontSize="12px">{singleobj.introduction}</Text>
-                            </Stack>
-
-                        </Stack>
-
-                        <Button color="white" bg="#1EC3B3">Shortlist</Button>
                     </Stack>
 
-                    <Image
-                        height="500px"
-                        width="300px"
-                        src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                        alt='Green double couch with wooden legs'
-                        borderRadius='lg'
-                    />
+                    <Flex gap={4}>
+                        <Button display="flex" gap={2} bg="white" borderRadius="4px" border="1px solid lightgray"><FontAwesomeIcon icon={faCube} />To Review</Button>
+                        <Button display="flex" gap={2} bg="white" borderRadius="4px" border="1px solid lightgray"><FontAwesomeIcon icon={faFile} />Shortlisted</Button>
+                    </Flex>
+
+
+                    <Stack>
+
+                        <Flex textTransform="uppercase" fontWeight={700} color="#8D99AB" justify="space-between">
+                            <Text fontSize="14px">Candidate</Text>
+                            <Text fontSize="14px">Score</Text>
+                        </Flex>
+
+                        {
+                            expdata.map((item) => (
+                                <Flex onClick={() => sendSingleObject(item)} align="center" justify="space-between" width="100%">
+                                    <Flex align="center" gap={2}>
+                                        <Avatar borderRadius="9px" name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+                                        <Stack justify="center" gap={0}>
+                                            <Text fontSize="15px" fontWeight={700}>{item.name}</Text>
+                                            <Text fontWeight={500} fontSize="12px" color="#7C8A9F">{item.email}</Text>
+                                        </Stack>
+                                    </Flex>
+                                    <Flex>
+                                        <Text color="#32BE5C" fontWeight={700}>{item.percentage}%</Text>
+                                    </Flex>
+                                </Flex>
+                            ))
+                        }
+
+
+                    </Stack>
                 </CardBody>
+
+
 
             </Card>
         </Flex>
     )
 }
 
-export default RightHandSide
+export default MiddleHandSide
