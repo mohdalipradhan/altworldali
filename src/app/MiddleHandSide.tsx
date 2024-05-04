@@ -6,25 +6,23 @@ import { faCube, faFile, faPen } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import React from 'react'
-interface Person {
-    name: string;
-    email: string;
-    percentage: number;
-}
+
 
 interface AppProps {
-    expdata: Person[];
+    expdata: any[];
+    singleobj: any;
+    setSingleObj: any;
 }
 const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }) => {
 
-    const sendSingleObject = (item) => {
+    const sendSingleObject = (item: any) => {
         setSingleObj(item)
     }
     return (
         <Flex flex={4}>
             <Card width="1000px" maxW='md'>
                 <CardHeader width="100%">
-                    <Flex spacing='4'>
+                    <Flex>
                         <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
                             <Box display="flex" justifyContent="space-between" width="100%">
                                 <Heading size='sm' >Sales BDE</Heading>
