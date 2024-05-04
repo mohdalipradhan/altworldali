@@ -5,7 +5,7 @@ import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { faCube, faFile, faPen } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 interface AppProps {
@@ -17,7 +17,16 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }
 
     const sendSingleObject = (item: any) => {
         setSingleObj(item)
+        setSelectedMenu(item.name)
     }
+
+    const [selectedMenu, setSelectedMenu] = useState(singleobj.name);
+
+
+    useEffect(()=>{
+        console.log("hello")
+    },[selectedMenu])
+
     return (
         <Flex flex={4}>
             <Card width="1000px" maxW='md'>
@@ -84,7 +93,7 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }
 
                         {
                             expdata.map((item) => (
-                                <Flex onClick={() => sendSingleObject(item)} align="center" justify="space-between" width="100%">
+                                <Flex cursor="pointer" background={selectedMenu === item.name ? '#F0F0F0' : "white"} onClick={() => sendSingleObject(item)} align="center" justify="space-between" width="100%">
                                     <Flex align="center" gap={2}>
                                         <Avatar borderRadius="9px" name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
                                         <Stack justify="center" gap={0}>
