@@ -5,7 +5,13 @@ import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import ProgressBar from '@ramonak/react-progress-bar'
 import React from 'react'
 
-const RightHandSide = ({singleobj}) => {
+
+
+
+interface AppProps {
+    singleobj: any;
+}
+const RightHandSide: React.FC<AppProps>  = ({singleobj}) => {
 
     console.log(singleobj)
 
