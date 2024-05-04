@@ -23,7 +23,7 @@ export default function Home() {
   });
   return (
     <ChakraProvider theme={theme}>
-      <App expdata={people} singleobj={singleObj} setSingleObj={setSingleObj} />
+      <App expdata={expdata} singleobj={singleObj} setSingleObj={setSingleObj} setExpData={setExpData} />
     </ChakraProvider>
   );
 }
