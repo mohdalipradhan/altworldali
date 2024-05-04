@@ -26,7 +26,7 @@ const App: React.FC<AppProps> = ({ expdata,singleobj, setSingleObj }) => {
                     <LeftHandSide />
                     <Flex gap={4}>
                         <MiddleHandSide singleobj={singleobj} setSingleObj={setSingleObj} expdata={expdata}/>
-                        <RightHandSide singleobj={singleobj}/>
+                        <RightHandSide singleobj={singleobj} expdata={expdata} setSingleObj={setSingleObj} />
                     </Flex>
                 </Flex>
             </Stack>
