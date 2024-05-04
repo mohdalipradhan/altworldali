@@ -17,7 +17,14 @@ interface AppProps {
 }
 const RightHandSide: React.FC<AppProps> = ({ singleobj, expdata, setSingleObj }) => {
 
-
+    const handleShortlist = (singleobj: any) => {
+        let existingShortlistedItems = [];
+        const storedItems = localStorage.getItem('shortlistedItems');
+        if (storedItems !== null) {
+            existingShortlistedItems = JSON.parse(storedItems);
+        } const updatedShortlistedItems = [...existingShortlistedItems, singleobj];
+        localStorage.setItem('shortlistedItems', JSON.stringify(updatedShortlistedItems));
+    };
     return (
         <Flex flex={4}>
             <Card display="flex">
@@ -77,13 +84,13 @@ const RightHandSide: React.FC<AppProps> = ({ singleobj, expdata, setSingleObj })
 
                         </Stack>
 
-                        <Button color="white" bg="#1EC3B3">Shortlist</Button>
+                        <Button onClick={() => handleShortlist(singleobj)} color="white" bg="#1EC3B3">Shortlist</Button>
                     </Stack>
 
                     <Image
                         height="500px"
                         width="300px"
-                        src={womanprofessional.src} 
+                        src={womanprofessional.src}
                         alt='Green double couch with wooden legs'
                         borderRadius='lg'
                     />
