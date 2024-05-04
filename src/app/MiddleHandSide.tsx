@@ -12,8 +12,9 @@ interface AppProps {
     expdata: any[];
     singleobj: any;
     setSingleObj: any;
+    setExpData: any;
 }
-const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }) => {
+const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj, setExpData }) => {
 
     const sendSingleObject = (item: any) => {
         setSingleObj(item)
@@ -21,7 +22,19 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }
     }
 
     const [selectedMenu, setSelectedMenu] = useState(singleobj.name);
+    const [ButtonClick, setButtonClick] = useState(false);
     console.log(expdata)
+
+    const handleOnClick = () => {
+        let existingShortlistedItems = [];
+        const storedItems = localStorage.getItem('shortlistedItems');
+        if (storedItems !== null) {
+            existingShortlistedItems = JSON.parse(storedItems);
+        }
+        setExpData(existingShortlistedItems)
+        setButtonClick(!ButtonClick)
+        
+    }
 
 
     useEffect(()=>{
@@ -59,7 +72,7 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }
                         <li style={{ listStyle: "none" }}>
                             <Flex justify="space-between">
                                 <Text color="#79879C" fontWeight={700}>Assignment Link</Text>
-                                <Text fontSize="14px" fontWeight={500} color="#2E88FF">httplink.com</Text>
+                                <a style={{color: "#1155CC" , fontWeight: 500}} href='https://testmoz.com/'>examshortlist</a>
                             </Flex>
                         </li>
                         <li style={{ listStyle: "none" }}>
@@ -81,7 +94,7 @@ const MiddleHandSide: React.FC<AppProps> = ({ expdata, singleobj, setSingleObj }
 
                     <Flex gap={4}>
                         <Button display="flex" gap={2} bg="white" borderRadius="4px" border="1px solid lightgray"><FontAwesomeIcon icon={faCube} />To Review</Button>
-                        <Button display="flex" gap={2} bg="white" borderRadius="4px" border="1px solid lightgray"><FontAwesomeIcon icon={faFile} />Shortlisted</Button>
+                        <Button  onClick={handleOnClick} display="flex" gap={2} bg={ButtonClick === true ? '#F0F0F0' : "white"} borderRadius="4px" border="1px solid lightgray"><FontAwesomeIcon icon={faFile} />Shortlisted</Button>
                     </Flex>
 
 
