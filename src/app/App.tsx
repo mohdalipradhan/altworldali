@@ -9,7 +9,7 @@ import RightHandSide from './RightHandSide'
 import NavBar from './NavBar'
 
 interface AppProps {
-    expdata: any;
+    expdata: any[];
     singleobj: any; 
     setSingleObj: any; 
 }
